@@ -1,0 +1,107 @@
+/* CSS-Datei */
+
+/* Globale Stile */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 245, 230); /* Helle beige Farbe */
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 245, 230),
+    rgb(218, 210, 199)
+  ); /* Verlauf von oben nach unten */
+}
+
+/* Grundlegende Container- und Zeilenformatierung */
+.container {
+  width: 80%;
+  margin: 0 auto; /* Zentriert den Container */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0; /* Fügt oben und unten einen Abstand hinzu */
+}
+
+/* Text-Formatierung */
+p {
+  font-family: Arial, sans-serif;
+  line-height: 1.6; /* Verbessert die Lesbarkeit */
+}
+
+/* Überschriften-Formatierung */
+h2 {
+  font-family: "Georgia", serif;
+  color: #333; /* Dunkelgraue Farbe für Text */
+  margin-bottom: 20px; /* Abstand unter der Überschrift */
+}
+
+/* Projekt-Karten */
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Fügt einen leichten Schatten hinzu */
+  margin: 10px; /* Fügt einen Abstand zwischen den Karten hinzu */
+}
+
+.card-img-top {
+  width: 100%; /* Stellt sicher, dass das Bild die Karte ausfüllt */
+  height: auto; /* Behält das ursprüngliche Seitenverhältnis bei */
+}
+
+.card-body {
+  padding: 20px; /* Fügt Innenabstand hinzu */
+}
+
+/* Spaltenanpassung für das Grid-System */
+.col-md-4 {
+  flex: 0 0 33.333333%; /* Nimmt ein Drittel der Zeilenbreite ein */
+  max-width: 33.333333%; /* Begrenzt die maximale Breite */
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+
+#SprichwortAr {
+  display: flex; /* Aktiviert Flexbox-Layout */
+  justify-content: center; /* Zentriert horizontal in der Mitte */
+  align-items: center; /* Zentriert vertikal in der Mitte */
+  flex-direction: column; /* Anordnung der Elemente untereinander */
+}
+
+.navbar-beige {
+  background-color: rgb(219, 212, 202); /* Beige Farbe */
+}
+#about p {
+  background-color: rgb(219, 212, 202); /* Beige Farbe */
+  padding: 15px; /* Innenabstand */
+  margin-bottom: 10px; /* Abstand zwischen den Blöcken */
+  border-radius: 5px; /* Abgerundete Ecken */
+}
+.card-body {
+  background-color: rgb(218, 210, 199); /* Setzt die Hintergrundfarbe */
+}
+.card-text {
+  background-color: rgb(
+    218,
+    210,
+    199,
+    0.5
+  ); /* Heller Beige-Ton mit leichter Transparenz */
+}
+.card-title {
+  background-color: rgb(218, 210, 199); /* Setzt die Hintergrundfarbe */
+}
+.contact-section {
+  padding: 50px; /* Erhöht den Innenabstand */
+  margin: 30px 0; /* Fügt oben und unten einen Außenabstand hinzu */
+}
