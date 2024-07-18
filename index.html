@@ -1,8 +1,14 @@
 <!DOCTYPE html>
+
+<!-- To be honest: I first tried everything by copy-pasting AI prompts, but that didn't work well. 
+Afterwards, I read that it is not legitimate altogether. 
+So, I took the existing code, read the good old Bootstrap documentation, and started playing around with the scaffold.
+After working the right way (which is much easier) I understood why you made this rule -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap und Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -15,53 +21,44 @@
     <!-- Titel -->
     <title>Jakob Iebed</title>
   </head>
+
   <!-- Beginn der Website -->
+
   <body>
     <!-- Kopf -->
+
     <header>
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg navbar-light navbar-beige">
-        <div class="container">
-          <a class="navbar-brand" href="#">Jakob Iebed</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#start">Start</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#projects">Projekte</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">Kontakt</a>
-              </li>
-            </ul>
+      <!-- Navigation (created scaffold with GithubCopilot (short GC))-->
+      <div class="nav gray">
+        <div class="container row">
+          <a class="navbar-brand col black" href="#">Jakob Iebed</a>
+          <div class="nav-item col">
+            <a class="nav-link black" href="#start">Start</a>
+          </div>
+          <div class="nav-item col">
+            <a class="nav-link black" href="#about">About Me</a>
+          </div>
+          <div class="nav-item col">
+            <a class="nav-link black" href="#projects">Projekte</a>
+          </div>
+          <div class="nav-item col">
+            <a class="nav-link black" href="#contact">Kontakt</a>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
-    <!-- Beginn , Bild von mir -->
+
+    <!-- Hauptteil-->
+
     <main>
+      <!-- Start -->
       <section id="start">
         <div class="container">
           <div class="row">
-            <div class="col-md-6 d-flex align-items-center">
+            <div class="col d-flex align-items-center">
               <img src="Bild.jpg" class="img-fluid" alt="Jakob Iebed" />
             </div>
-            <div id="SprichwortAr" class="col-md-6 text-center">
+            <div id="SprichwortAr" class="col text-center">
               <p style="font-size: 30px">انما النصر صبر ساعة</p>
               <p style="font-size: 24px">
                 ً"Wo doch der Sieg nur das Warten einer Stunde ist"
@@ -76,69 +73,54 @@
           </div>
         </div>
       </section>
+      <!-- About -->
       <section id="about">
         <div class="container">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col">
               <h2 class="text-center">About Me</h2>
             </div>
           </div>
           <!-- Zeile für die erste Karte -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card rounded">
-                <div class="card-body">
-                  <h5 class="card-title">Passionater Lerner</h5>
-                  <div class="card-text">
-                    Ich bin Jakob Iebed, ein junger Techniker aus dem
-                    wunderschönen Wien. Studiere Maschinebau auf der TU-Wien,
-                    der besten Uni die es im Karlsplatz gibt 😉. Mein Ziel ist
-                    es ein Tausendsassa zu sein, darum liebe ich es, neue Dinge
-                    zu lernen.
-                  </div>
-                </div>
-              </div>
+          <div class="card-body mb-3">
+            <h5 class="card-title">Passionater Lerner</h5>
+            <div class="card-text">
+              Ich bin Jakob Iebed, ein junger Techniker aus dem wunderschönen
+              Wien. Studiere Maschinebau auf der TU-Wien, der besten Uni die es
+              im Karlsplatz gibt 😉. Mein Ziel ist es ein Tausendsassa zu sein,
+              darum liebe ich es, neue Dinge zu lernen.
             </div>
           </div>
           <!-- Zeile für die zweite Karte -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card rounded bg-light-beige">
-                <div class="card-body">
-                  <h5 class="card-title">Vielfältige Skills</h5>
-                  <div class="card-text">
-                    Ich habe Erfahrung in CAD, FDM sowie Programmierkenntnis
-                    (Py, C, SQL, HTML, CSS, JavaScript) und vielem mehr. Ich bin
-                    auch ein großer Fan von Elektromotoren und baue mir gerne
-                    auch Gefährte, eine Batterie stellte ich auch schon zusammen
-                  </div>
-                </div>
-              </div>
+          <div class="card-body mb-3">
+            <h5 class="card-title">Vielfältige Skills</h5>
+            <div class="card-text">
+              Ich habe Erfahrung in CAD, FDM sowie Programmierkenntnis (Py, C,
+              SQL, HTML, CSS, JavaScript) und vielem mehr. Ich bin auch ein
+              großer Fan von Elektromotoren und baue mir gerne auch Gefährte,
+              eine Batterie stellte ich auch schon zusammen. 🚀
             </div>
           </div>
           <!-- Zeile für die dritte Karte -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card rounded bg-dark-beige">
-                <div class="card-body">
-                  <h5 class="card-title">Ready for Challenges</h5>
-                  <div class="card-text">
-                    Ich bin immer auf der Suche nach neuen Herausforderungen und
-                    freue mich darauf, mit dir zusammenzuarbeiten!
-                  </div>
-                </div>
-              </div>
+          <div class="card-body mb-3">
+            <h5 class="card-title">Ready für die nächste Challenge</h5>
+            <div class="card-text">
+              Ich bin immer auf der Suche nach neuen Herausforderungen und freue
+              mich darauf, mit dir zusammenzuarbeiten! 💪😊
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Projects -->
+
       <section id="projects">
         <div class="container">
           <div class="text-center">
             <h2 class="display-4">Projekte</h2>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col">
               <div class="card">
                 <img src="3d-Druck.jpg" class="card-img-top" alt="Project 1" />
                 <div class="card-body">
@@ -153,7 +135,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col">
               <div class="card">
                 <img
                   src="esk8.jpeg"
@@ -171,7 +153,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col">
               <div class="card">
                 <img
                   src="rostyslav-savchyn--nqlMPecTWQ-unsplash.jpg"
@@ -193,29 +175,32 @@
         </div>
       </section>
     </main>
-    <footer id="contact">
+    <!-- I first attempted to create the footer using mostly AI, but that didn't go well. So, I read about columns and flexbox and made the following with a litte help from GC :) -->
+    <footer id="contact" class="black-border mb-5 mx-auto" style="width: 95%">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 align-items-center">
+          <div class="col">
             <h2>Zögere nicht mich zu kontaktieren</h2>
             <p>Email: jakobiebd@gmail.com</p>
           </div>
-          <div class="col-md-6">
+          <div class="col">
             <a
               href="https://www.linkedin.com/in/jakob-iebed-135690205/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i class="fab fa-linkedin fa-2x"></i>
+              <i
+                class="d-flex justify-content-center fab fa-linkedin fa-4x"
+              ></i>
             </a>
-            <div>
-              <i class="far fa-smile fa-2x"></i>
-            </div>
           </div>
-          <div>
-            <p class="text-center">© 2024 Jakob Iebed</p>
+          <div class="col">
+            <i class="d-flex justify-content-center far fa-smile fa-6x"></i>
           </div>
         </div>
+      </div>
+      <div>
+        <p class="text-center">© 2024 Jakob Iebed</p>
       </div>
     </footer>
   </body>

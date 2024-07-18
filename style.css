@@ -78,7 +78,7 @@ h2 {
   flex-direction: column; /* Anordnung der Elemente untereinander */
 }
 
-.navbar-beige {
+.gray {
   background-color: rgb(219, 212, 202); /* Beige Farbe */
 }
 #about p {
@@ -104,4 +104,11 @@ h2 {
 .contact-section {
   padding: 50px; /* Erhöht den Innenabstand */
   margin: 30px 0; /* Fügt oben und unten einen Außenabstand hinzu */
+}
+.black-border {
+  border: 5px solid black; /* Adjust the border width and style as needed */
+  /* margin-bottom: 2rem; Adjust the value as needed */
+}
+.black {
+  color: black;
 }
