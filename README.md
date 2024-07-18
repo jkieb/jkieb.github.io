@@ -4,6 +4,7 @@
 
 ![alt text](screenshot.png)
 
+### Video Demo:  < >
 ### Link to the website: [Jakob Iebed Portfolio](https://jakobiebed.github.io/)
 
 ### Technologies used:
@@ -82,6 +83,7 @@ Is pretty bad. The videos are not good structured, the documentation is way bett
 - I shouldn't rely on GC too much.
 - Start slow and don't rush it. Develop steadily.
 - REPOS are DANGEROUS, be careful with them.
+- I named a file css.style instead of style.css. This mistake did cost me at least an hour of my life.
 <p>&nbsp;</p>
 
 ## Possible Improvements (with recommendations from GC)
