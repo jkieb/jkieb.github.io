@@ -5,7 +5,46 @@
 ![alt text](screenshot.png)
 
 ### Video Demo:  https://youtu.be/xHIA1kQpNzM
-### Link to the website: [Jakob Iebed Portfolio](https://jakobiebed.github.io/)
+### Link to the website: [Jakob Iebed Portfolio](https://jkieb.github.io/)
+
+---
+
+## Redesign
+
+The site has since been rebuilt from scratch. What changed:
+
+- **No framework anymore.** Bootstrap and Font Awesome (both loaded from a CDN)
+  are gone. The layout is plain CSS Grid and Flexbox, the icons are inline SVG.
+  The whole site now loads without a single third-party request.
+- **Design tokens + dark mode.** Colours, spacing, radii and type scale live in
+  CSS custom properties. The site follows the system colour scheme and has a
+  toggle that remembers the choice in `localStorage`.
+- **Fluid typography.** Font sizes scale with the viewport via `clamp()` instead
+  of fixed pixel values.
+- **Real mobile navigation** with a burger menu, `Esc` to close and proper
+  ARIA state.
+- **Images optimised.** WebP with JPEG fallback, `loading="lazy"`, explicit
+  `width`/`height` so nothing jumps while loading — roughly 9.7 MB down to
+  0.75 MB of image payload. The optimised files live in `img/`.
+- **Accessibility.** Semantic landmarks, skip link, visible focus rings,
+  descriptive `alt` texts, `lang="de"` on the page and `lang="ar" dir="rtl"` on
+  the Arabic quote, `prefers-reduced-motion` support.
+- **SEO/social.** Meta description, canonical URL, Open Graph and Twitter card
+  tags, an inline SVG favicon.
+
+### Files
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | Landing page |
+| `impressum.html` | Legal notice, same design system |
+| `style.css` | Design tokens, layout, components |
+| `main.js` | Theme toggle, mobile menu, scroll spy, reveal animation |
+| `img/` | Optimised WebP/JPEG assets used by the site |
+
+---
+
+## The original CS50 write-up
 
 ### Technologies used:
 
