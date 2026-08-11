@@ -2,106 +2,73 @@
 
 Hier liegen die **geschwärzten** PDFs, die auf der Seite verlinkt sind. Alles in
 diesem Ordner ist öffentlich unter `https://jkieb.github.io/zeugnisse/<datei>.pdf`
-abrufbar – ohne Login, für Suchmaschinen indexierbar.
+abrufbar – ohne Login und für Suchmaschinen indexierbar.
 
-## Ablauf
+## Ein Dokument ergänzen
 
-### 1. Original ablegen
+1. **Schwärzen** – im PDF-Programm deiner Wahl, bevor die Datei hierher kommt.
+   Achte darauf, dass der Inhalt wirklich entfernt und nicht nur ein Rechteck
+   darübergelegt wird (siehe Kontrolle unten).
 
-Scans kommen nach `roh/` im Projektordner. Der ist über `.gitignore`
-ausgeschlossen und landet nie auf GitHub.
+2. **Ablegen** unter `zeugnisse/`, Dateiname klein, mit Bindestrichen, ohne
+   Umlaute, Jahr hinten dran:
 
-```
-mkdir -p roh
-# Scans nach roh/ kopieren
-```
+   ```
+   praktikum-siemens-healthineers-2025.pdf
+   praktikum-general-laser-2021.pdf
+   ```
 
-### 2. Nachsehen, was weg muss
+3. **Verlinken** – in `main.js` steht ganz oben die Liste `zeugnisse`. Pro
+   Dokument ein Eintrag:
 
-```
-python3 tools/schwaerzen.py vorschau roh/zeugnis-firma.pdf
-```
+   ```js
+   {
+     titel: "Praktikum Konstruktion",
+     aussteller: "Firma XY GmbH",
+     zeitraum: "Juli – August 2024",
+     text: "Mitarbeit an CAD-Modellen und Fertigungszeichnungen.",
+     datei: "zeugnisse/praktikum-firma-2024.pdf",
+   },
+   ```
 
-Das legt `roh/zeugnis-firma_vorschau/seite-1.png` usw. an – jede Seite mit rotem
-Koordinatenraster. Dort die Eckpunkte der Bereiche ablesen, die verschwinden
-sollen. Der Ursprung ist oben links, Einheit sind PDF-Punkte (72 pt = 2,54 cm).
+   Ist die Liste leer, blendet die Seite den Abschnitt samt Menüpunkt aus – es
+   entstehen also keine toten Links.
 
-Typischerweise raus müssen:
+4. **Hochladen:** `git add zeugnisse/ main.js && git commit && git push`
+
+## Was üblicherweise raus muss
 
 - Geburtsdatum
-- Privatadresse
-- Unterschriften (deine und die der Vorgesetzten)
-- Personalnummer / Sozialversicherungsnummer
-- Telefonnummer und private E-Mail-Adresse
+- Privatadresse, Telefonnummer, private E-Mail-Adresse
+- Personalnummer, Sozialversicherungsnummer
+- Unterschriften – deine und die der Vorgesetzten
 
-Firmenname, Zeitraum und Tätigkeitsbeschreibung bleiben – das ist ja der Punkt
-der Sache.
+Firmenname, Zeitraum und Tätigkeitsbeschreibung bleiben, das ist ja der Punkt
+der Sache. Die getippten Namen der Unterzeichnenden stehen auf dem Briefkopf und
+sind unkritisch, die handschriftlichen Unterschriften nicht.
 
-### 3. Schwärzen
+## Kontrolle vor dem Commit
 
-```
-python3 tools/schwaerzen.py schwaerzen roh/zeugnis-firma.pdf \
-    -o zeugnisse/praktikum-firma-2024.pdf \
-    --suche "01.02.2003" \
-    --suche "Musterstraße 12" \
-    --box "1:60,640,300,720"
-```
+Ein schwarzes Rechteck über dem Text ist keine Schwärzung – in vielen Programmen
+bleibt der Inhalt darunter erhalten und lässt sich wieder freilegen. Deshalb bei
+jedem neuen PDF prüfen:
 
-- `--suche` findet Text im PDF und entfernt ihn (mehrfach angebbar,
-  Groß-/Kleinschreibung egal). Klappt nur, wenn das PDF eine Textebene hat.
-- `--box "SEITE:x0,y0,x1,y1"` entfernt ein Rechteck – der Weg für Scans und für
-  Unterschriften. `*` statt der Seitenzahl trifft alle Seiten.
+- **Text markieren.** Im PDF-Viewer über die geschwärzte Stelle ziehen und
+  kopieren. Es darf nichts herauskommen.
+- **Bei Scans:** das eingebettete Bild ansehen, nicht nur die gerenderte Seite.
+  Wenn die Balken nur im PDF liegen und nicht im Bild selbst, sind die Daten noch
+  da. Sicher ist ein Scan, bei dem die Balken schon im Bild schwarz sind.
 
-Das Skript legt **kein schwarzes Rechteck obendrauf**, sondern löscht Text,
-Vektoren und Bildpixel im markierten Bereich, rastert die Seite anschließend neu
-und entfernt alle Metadaten. Was geschwärzt ist, ist wirklich weg – auch für
-"Text markieren und kopieren" oder ein Auslesen der Rohdatei.
-
-### 4. Ergebnis kontrollieren
-
-Vor dem Commit die fertige Datei aufmachen und durchsehen. Prüfen:
-
-- Ist wirklich alles Schwarze schwarz und nichts Wichtiges verdeckt?
-- Text markieren im PDF-Viewer – es darf sich gar nichts markieren lassen
-  (die Seite ist gerastert).
-
-### 5. Auf der Seite verlinken
-
-In `main.js` ganz oben steht die Liste `zeugnisse`. Pro Dokument einen Eintrag
-ergänzen:
-
-```js
-{
-  titel: "Praktikum Konstruktion",
-  aussteller: "Firma XY GmbH",
-  zeitraum: "Juli – August 2024",
-  text: "Mitarbeit an CAD-Modellen und Fertigungszeichnungen.",
-  datei: "zeugnisse/praktikum-firma-2024.pdf",
-},
-```
-
-Solange die Liste leer ist, blendet die Seite den ganzen Abschnitt samt
-Menüpunkt aus – es entstehen also keine toten Links.
-
-### 6. Hochladen
-
-```
-git add zeugnisse/ main.js
-git commit -m "Zeugnis Firma XY ergänzt"
-git push
-```
-
-## Namensschema
-
-Kleinbuchstaben, Bindestriche, keine Umlaute, Jahr hinten dran:
-
-```
-praktikum-firma-2024.pdf
-zertifikat-cs50-2024.pdf
-```
+Die beiden vorhandenen Dateien wurden so geprüft und sind sauber: General Laser
+ist ein reiner Bildscan ohne Textebene, die geschwärzten Bereiche sind schon im
+Bild selbst reines Schwarz. Beim Siemens-Zeugnis ist das Geburtsdatum tatsächlich
+aus der Textebene entfernt, unter den Balken liegt kein Text und keine Grafik.
 
 ## Wenn doch mal etwas Ungeschwärztes hochgeht
 
-Ein `git rm` reicht nicht – die Datei bleibt über die Historie abrufbar. Dann
+Ein `git rm` reicht nicht – die Datei bleibt über die Git-Historie abrufbar. Dann
 muss die Historie umgeschrieben werden (`git filter-repo`) und anschließend
-force-gepusht. Deshalb: lieber einmal mehr kontrollieren als einmal zu wenig.
+force-gepusht. Deshalb lieber einmal mehr kontrollieren als einmal zu wenig.
+
+Ungeschwärzte Originale gehören nach `roh/`; der Ordner ist über `.gitignore`
+ausgeschlossen und kann nicht versehentlich mitcommittet werden.

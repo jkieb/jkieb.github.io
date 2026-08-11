@@ -3,18 +3,31 @@
 /* Zeugnisse und Zertifikate.
  *
  * Pro Dokument ein Eintrag. Die PDF gehört nach `zeugnisse/` und muss vorher
- * geschwärzt sein – siehe zeugnisse/README.md. Solange die Liste leer ist,
- * blendet die Seite den Abschnitt und den Menüpunkt aus.
- *
- *   {
- *     titel: "Praktikum Konstruktion",
- *     aussteller: "Firma XY GmbH",
- *     zeitraum: "Juli – August 2024",
- *     text: "Mitarbeit an CAD-Modellen und Fertigungszeichnungen.",
- *     datei: "zeugnisse/praktikum-firma-2024.pdf",
- *   },
+ * geschwärzt sein – siehe zeugnisse/README.md. Ist die Liste leer, blendet die
+ * Seite den Abschnitt und den Menüpunkt aus.
  */
-const zeugnisse = [];
+const zeugnisse = [
+  {
+    titel: "Praktikum Digital & Automation",
+    aussteller: "Siemens Healthcare Diagnostics GmbH",
+    zeitraum: "Juli – September 2025",
+    text:
+      "Dreimonatiges Vollzeitpraktikum: Automatisierung von Arbeitsprozessen mit " +
+      "VBA, Finetuning von Machine-Learning-Modellen mit PyTorch und Aufbau der " +
+      "Dokumentation für nachfolgende Praktikanten.",
+    datei: "zeugnisse/praktikum-siemens-healthineers-2025.pdf",
+  },
+  {
+    titel: "Praktikum Entwicklung & Fertigung",
+    aussteller: "General Laser OG",
+    zeitraum: "August 2021",
+    text:
+      "Einblick in LiDAR, GNSS und IMU sowie in additive und subtraktive " +
+      "Materialbearbeitung – von der Recherche zu mobilen LiDAR-Scannern bis zur " +
+      "Herstellung von Komponenten für eine flexible Betonschalung.",
+    datei: "zeugnisse/praktikum-general-laser-2021.pdf",
+  },
+];
 
 (function () {
   "use strict";
