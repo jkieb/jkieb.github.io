@@ -18,6 +18,16 @@ const zeugnisse = [
     datei: "zeugnisse/praktikum-siemens-healthineers-2025.pdf",
   },
   {
+    titel: "CS50x – Introduction to Computer Science",
+    aussteller: "Harvard University",
+    zeitraum: "2024",
+    text:
+      "Harvards Einführung in die Informatik: zehn Problem Sets und ein " +
+      "Abschlussprojekt zu Algorithmen, Datenstrukturen und Speicherverwaltung " +
+      "in C, Python und SQL sowie Webentwicklung mit HTML, CSS und JavaScript.",
+    datei: "zeugnisse/cs50x-harvard-2024.pdf",
+  },
+  {
     titel: "Praktikum Entwicklung & Fertigung",
     aussteller: "General Laser OG",
     zeitraum: "August 2021",

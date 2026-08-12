@@ -59,10 +59,20 @@ jedem neuen PDF prüfen:
   Wenn die Balken nur im PDF liegen und nicht im Bild selbst, sind die Daten noch
   da. Sicher ist ein Scan, bei dem die Balken schon im Bild schwarz sind.
 
-Die beiden vorhandenen Dateien wurden so geprüft und sind sauber: General Laser
+- **Auch an Bilder denken.** Nicht nur Text überlebt einen aufgemalten Balken,
+  sondern genauso ein eingebettetes Bild – etwa eine gescannte Unterschrift.
+  Markieren und Kopieren findet so etwas nicht.
+
+Die vorhandenen Dateien wurden so geprüft und sind sauber: General Laser
 ist ein reiner Bildscan ohne Textebene, die geschwärzten Bereiche sind schon im
 Bild selbst reines Schwarz. Beim Siemens-Zeugnis ist das Geburtsdatum tatsächlich
 aus der Textebene entfernt, unter den Balken liegt kein Text und keine Grafik.
+
+Beim CS50x-Zertifikat war der Balken über der Unterschrift zunächst nur
+darübergelegt – das Unterschriftsbild lag unverändert darunter und wäre durch
+Entfernen des Rechtecks wieder sichtbar geworden. In der hier abgelegten Fassung
+ist das Bild aus der Datei entfernt. Name, Zertifikats-ID und Verifizierungslink
+sind bewusst sichtbar, darüber lässt sich das Zertifikat bei Harvard prüfen.
 
 ## Wenn doch mal etwas Ungeschwärztes hochgeht
 
