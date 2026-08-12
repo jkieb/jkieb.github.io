@@ -37,11 +37,6 @@ das nicht.
    },
    ```
 
-   `pruefLink` ist optional und nur für Online-Zertifikate gedacht, die der
-   Aussteller im Netz verifizierbar macht. Ist das Feld gesetzt, erscheint neben
-   dem PDF-Link ein zweiter Link „Echtheit prüfen". Bei eingescannten Zeugnissen
-   bleibt es weg.
-
    Ist die Liste leer, blendet die Seite den Abschnitt samt Menüpunkt aus – es
    entstehen also keine toten Links.
 

@@ -26,8 +26,6 @@ const zeugnisse = [
       "Abschlussprojekt zu Algorithmen, Datenstrukturen und Speicherverwaltung " +
       "in C, Python und SQL sowie Webentwicklung mit HTML, CSS und JavaScript.",
     datei: "zeugnisse/cs50x-harvard-2024.pdf",
-    pruefLink:
-      "https://cs50.harvard.edu/certificates/2c8b92d4-d5bf-4070-8fbe-bc454adfd9c7",
   },
   {
     titel: "Praktikum Entwicklung & Fertigung",
@@ -56,11 +54,6 @@ const zeugnisse = [
       '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />' +
       '<path d="M14 2v6h6M9 15h6M9 11h2" /></svg>';
-
-    const pruefSymbol =
-      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z" />' +
-      '<path d="m9 12 2 2 4-4" /></svg>';
 
     const pfeilSymbol =
       '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -100,9 +93,6 @@ const zeugnisse = [
         koerper.append(text);
       }
 
-      const links = document.createElement("div");
-      links.className = "credential__links";
-
       if (eintrag.datei) {
         const link = document.createElement("a");
         link.className = "credential__link";
@@ -113,21 +103,8 @@ const zeugnisse = [
         link.innerHTML = "PDF ansehen" + pfeilSymbol;
         // Damit im Screenreader klar ist, welches PDF gemeint ist
         link.setAttribute("aria-label", "PDF ansehen: " + eintrag.titel);
-        links.append(link);
+        koerper.append(link);
       }
-
-      if (eintrag.pruefLink) {
-        const pruefen = document.createElement("a");
-        pruefen.className = "credential__link credential__link--pruefen";
-        pruefen.href = eintrag.pruefLink;
-        pruefen.target = "_blank";
-        pruefen.rel = "noopener noreferrer";
-        pruefen.innerHTML = pruefSymbol + "Echtheit prüfen";
-        pruefen.setAttribute("aria-label", "Echtheit prüfen: " + eintrag.titel);
-        links.append(pruefen);
-      }
-
-      if (links.children.length) koerper.append(links);
 
       karte.append(koerper);
       zeugnisseListe.append(karte);

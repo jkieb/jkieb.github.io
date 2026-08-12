@@ -29,8 +29,17 @@ The site has since been rebuilt from scratch. What changed:
 - **Accessibility.** Semantic landmarks, skip link, visible focus rings,
   descriptive `alt` texts, `lang="de"` on the page and `lang="ar" dir="rtl"` on
   the Arabic quote, `prefers-reduced-motion` support.
+- **Certificates section.** Reference letters and certificates are listed from a
+  single array at the top of `main.js`; the PDFs live in `zeugnisse/`. If the
+  array is empty, the section and its nav entry disappear, so there are never
+  any dead links. See `zeugnisse/README.md` for the redaction checklist — a
+  black rectangle drawn on top of a PDF is not a redaction, the content
+  underneath survives it.
 - **SEO/social.** Meta description, canonical URL, Open Graph and Twitter card
-  tags, an inline SVG favicon.
+  tags, an inline SVG favicon and a dedicated 1200×630 preview image so nothing
+  gets cropped when the page is shared. `robots.txt` keeps `/zeugnisse/` out of
+  search engines while the rest of the site stays indexable; `sitemap.xml`
+  lists the public pages.
 
 ### Files
 
@@ -39,8 +48,14 @@ The site has since been rebuilt from scratch. What changed:
 | `index.html` | Landing page |
 | `impressum.html` | Legal notice, same design system |
 | `style.css` | Design tokens, layout, components |
-| `main.js` | Theme toggle, mobile menu, scroll spy, reveal animation |
+| `main.js` | Certificate list, theme toggle, mobile menu, scroll spy, reveal animation |
 | `img/` | Optimised WebP/JPEG assets used by the site |
+| `zeugnisse/` | Redacted reference letters and certificates, plus the checklist for adding one |
+| `robots.txt` | Excludes `/zeugnisse/` from search engines |
+| `sitemap.xml` | Public pages for search engines |
+
+The screenshots and images in the CS50 write-up below are kept on purpose — they
+are what that section illustrates.
 
 ---
 
