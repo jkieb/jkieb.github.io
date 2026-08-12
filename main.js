@@ -1,9 +1,107 @@
 /* Kleine Helfer für die Seite – ohne Framework, ohne Abhängigkeiten. */
 
+/* Zeugnisse und Zertifikate.
+ *
+ * Pro Dokument ein Eintrag. Die PDF gehört nach `zeugnisse/` und muss vorher
+ * geschwärzt sein – siehe zeugnisse/README.md. Ist die Liste leer, blendet die
+ * Seite den Abschnitt und den Menüpunkt aus.
+ */
+const zeugnisse = [
+  {
+    titel: "Praktikum Digital & Automation",
+    aussteller: "Siemens Healthcare Diagnostics GmbH",
+    zeitraum: "Juli – September 2025",
+    text:
+      "Dreimonatiges Vollzeitpraktikum: Automatisierung von Arbeitsprozessen mit " +
+      "VBA, Finetuning von Machine-Learning-Modellen mit PyTorch und Aufbau der " +
+      "Dokumentation für nachfolgende Praktikanten.",
+    datei: "zeugnisse/praktikum-siemens-healthineers-2025.pdf",
+  },
+  {
+    titel: "Praktikum Entwicklung & Fertigung",
+    aussteller: "General Laser OG",
+    zeitraum: "August 2021",
+    text:
+      "Einblick in LiDAR, GNSS und IMU sowie in additive und subtraktive " +
+      "Materialbearbeitung – von der Recherche zu mobilen LiDAR-Scannern bis zur " +
+      "Herstellung von Komponenten für eine flexible Betonschalung.",
+    datei: "zeugnisse/praktikum-general-laser-2021.pdf",
+  },
+];
+
 (function () {
   "use strict";
 
   const root = document.documentElement;
+
+  /* --- Zeugnisse einsetzen ----------------------------------------------- */
+  const zeugnisseAbschnitt = document.getElementById("zeugnisse");
+  const zeugnisseListe = document.getElementById("zeugnisseListe");
+  const zeugnisseMenue = document.getElementById("navZeugnisse");
+
+  if (zeugnisseAbschnitt && zeugnisseListe && zeugnisse.length) {
+    const dokumentSymbol =
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />' +
+      '<path d="M14 2v6h6M9 15h6M9 11h2" /></svg>';
+
+    const pfeilSymbol =
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M5 12h14M13 6l6 6-6 6" /></svg>';
+
+    zeugnisse.forEach(function (eintrag) {
+      const karte = document.createElement("article");
+      karte.className = "card credential reveal";
+
+      const koerper = document.createElement("div");
+      koerper.className = "card__body";
+
+      const symbol = document.createElement("span");
+      symbol.className = "card__icon";
+      symbol.setAttribute("aria-hidden", "true");
+      symbol.innerHTML = dokumentSymbol;
+      koerper.append(symbol);
+
+      const titel = document.createElement("h3");
+      titel.className = "card__title";
+      titel.textContent = eintrag.titel;
+      koerper.append(titel);
+
+      // Aussteller und Zeitraum stehen zusammen in einer Zeile, beides optional
+      const angaben = [eintrag.aussteller, eintrag.zeitraum].filter(Boolean);
+      if (angaben.length) {
+        const meta = document.createElement("p");
+        meta.className = "credential__meta";
+        meta.textContent = angaben.join(" · ");
+        koerper.append(meta);
+      }
+
+      if (eintrag.text) {
+        const text = document.createElement("p");
+        text.className = "card__text";
+        text.textContent = eintrag.text;
+        koerper.append(text);
+      }
+
+      if (eintrag.datei) {
+        const link = document.createElement("a");
+        link.className = "credential__link";
+        link.href = eintrag.datei;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.innerHTML = "PDF ansehen" + pfeilSymbol;
+        // Damit im Screenreader klar ist, welches PDF gemeint ist
+        link.setAttribute("aria-label", "PDF ansehen: " + eintrag.titel);
+        koerper.append(link);
+      }
+
+      karte.append(koerper);
+      zeugnisseListe.append(karte);
+    });
+
+    zeugnisseAbschnitt.hidden = false;
+    if (zeugnisseMenue) zeugnisseMenue.hidden = false;
+  }
 
   /* --- Farbschema umschalten (Auswahl bleibt gespeichert) ---------------- */
   const themeToggle = document.getElementById("themeToggle");

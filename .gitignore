@@ -1,0 +1,13 @@
+# Ungeschwärzte Originale. Diese Dateien dürfen NIE ins Repository, weil alles
+# hier öffentlich unter jkieb.github.io landet und in der Git-Historie bleibt.
+roh/
+*_vorschau/
+
+# Python-Kram vom Schwärz-Skript
+__pycache__/
+venv/
+.venv/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db

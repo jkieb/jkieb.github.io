@@ -31,7 +31,7 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23b4530f'/%3E%3Ctext x='50' y='70' font-family='system-ui,sans-serif' font-size='58' font-weight='700' fill='%23fff' text-anchor='middle'%3EJI%3C/text%3E%3C/svg%3E"
     />
 
-    <link rel="stylesheet" href="style.css?v=2" />
+    <link rel="stylesheet" href="style.css?v=3" />
 
     <!-- Theme früh setzen, damit es beim Laden nicht kurz aufblitzt -->
     <script>
@@ -58,6 +58,9 @@
             <li><a class="nav__link" href="#start">Start</a></li>
             <li><a class="nav__link" href="#about">Über mich</a></li>
             <li><a class="nav__link" href="#projects">Projekte</a></li>
+            <li id="navZeugnisse" hidden>
+              <a class="nav__link" href="#zeugnisse">Zeugnisse</a>
+            </li>
             <li><a class="nav__link" href="#contact">Kontakt</a></li>
           </ul>
 
@@ -305,6 +308,24 @@
         </div>
       </section>
 
+      <!-- Zeugnisse & Zertifikate -->
+      <!-- Die Karten werden aus der Liste `zeugnisse` in main.js erzeugt.
+           Ist die Liste leer, bleibt der ganze Abschnitt ausgeblendet. -->
+      <section class="section" id="zeugnisse" hidden>
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="eyebrow">Nachweise</p>
+            <h2 class="section__title">Zeugnisse &amp; Zertifikate.</h2>
+            <p class="section__lead">
+              Persönliche Daten und Unterschriften sind in den PDFs geschwärzt.
+              Die vollständigen Originale gebe ich auf Anfrage gerne weiter.
+            </p>
+          </div>
+
+          <div class="cards" id="zeugnisseListe"></div>
+        </div>
+      </section>
+
       <!-- Kontakt -->
       <section class="section" id="contact">
         <div class="container">
@@ -357,6 +378,6 @@
       </div>
     </footer>
 
-    <script src="main.js?v=2" defer></script>
+    <script src="main.js?v=3" defer></script>
   </body>
 </html>
