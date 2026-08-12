@@ -1,0 +1,8 @@
+# Die Seite darf indexiert werden, die Zeugnisse nicht.
+# Sie bleiben normal verlinkt und abrufbar, sollen aber nicht
+# über eine Namenssuche auffindbar sein.
+
+User-agent: *
+Disallow: /zeugnisse/
+
+Sitemap: https://jkieb.github.io/sitemap.xml

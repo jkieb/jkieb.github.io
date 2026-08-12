@@ -2,7 +2,13 @@
 
 Hier liegen die **geschwärzten** PDFs, die auf der Seite verlinkt sind. Alles in
 diesem Ordner ist öffentlich unter `https://jkieb.github.io/zeugnisse/<datei>.pdf`
-abrufbar – ohne Login und für Suchmaschinen indexierbar.
+abrufbar – ohne Login, von jedem, der die Adresse kennt.
+
+Die `robots.txt` im Wurzelverzeichnis sperrt `/zeugnisse/` für Suchmaschinen, die
+Links auf der Seite tragen zusätzlich `rel="nofollow"`. Die Dokumente sollen also
+nicht über eine Namenssuche auffindbar sein. Das ist eine Bitte an die Crawler,
+keine Zugangssperre: wer die Adresse hat, kommt an die Datei. Schwärzen ersetzt
+das nicht.
 
 ## Ein Dokument ergänzen
 
@@ -30,6 +36,11 @@ abrufbar – ohne Login und für Suchmaschinen indexierbar.
      datei: "zeugnisse/praktikum-firma-2024.pdf",
    },
    ```
+
+   `pruefLink` ist optional und nur für Online-Zertifikate gedacht, die der
+   Aussteller im Netz verifizierbar macht. Ist das Feld gesetzt, erscheint neben
+   dem PDF-Link ein zweiter Link „Echtheit prüfen". Bei eingescannten Zeugnissen
+   bleibt es weg.
 
    Ist die Liste leer, blendet die Seite den Abschnitt samt Menüpunkt aus – es
    entstehen also keine toten Links.
