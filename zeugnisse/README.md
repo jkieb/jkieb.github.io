@@ -2,7 +2,13 @@
 
 Hier liegen die **geschwärzten** PDFs, die auf der Seite verlinkt sind. Alles in
 diesem Ordner ist öffentlich unter `https://jkieb.github.io/zeugnisse/<datei>.pdf`
-abrufbar – ohne Login und für Suchmaschinen indexierbar.
+abrufbar – ohne Login, von jedem, der die Adresse kennt.
+
+Die `robots.txt` im Wurzelverzeichnis sperrt `/zeugnisse/` für Suchmaschinen, die
+Links auf der Seite tragen zusätzlich `rel="nofollow"`. Die Dokumente sollen also
+nicht über eine Namenssuche auffindbar sein. Das ist eine Bitte an die Crawler,
+keine Zugangssperre: wer die Adresse hat, kommt an die Datei. Schwärzen ersetzt
+das nicht.
 
 ## Ein Dokument ergänzen
 
@@ -30,6 +36,11 @@ abrufbar – ohne Login und für Suchmaschinen indexierbar.
      datei: "zeugnisse/praktikum-firma-2024.pdf",
    },
    ```
+
+   `pruefLink` ist optional und nur für Online-Zertifikate gedacht, die der
+   Aussteller im Netz verifizierbar macht. Ist das Feld gesetzt, erscheint neben
+   dem PDF-Link ein zweiter Link „Echtheit prüfen". Bei eingescannten Zeugnissen
+   bleibt es weg.
 
    Ist die Liste leer, blendet die Seite den Abschnitt samt Menüpunkt aus – es
    entstehen also keine toten Links.
@@ -59,10 +70,20 @@ jedem neuen PDF prüfen:
   Wenn die Balken nur im PDF liegen und nicht im Bild selbst, sind die Daten noch
   da. Sicher ist ein Scan, bei dem die Balken schon im Bild schwarz sind.
 
-Die beiden vorhandenen Dateien wurden so geprüft und sind sauber: General Laser
+- **Auch an Bilder denken.** Nicht nur Text überlebt einen aufgemalten Balken,
+  sondern genauso ein eingebettetes Bild – etwa eine gescannte Unterschrift.
+  Markieren und Kopieren findet so etwas nicht.
+
+Die vorhandenen Dateien wurden so geprüft und sind sauber: General Laser
 ist ein reiner Bildscan ohne Textebene, die geschwärzten Bereiche sind schon im
 Bild selbst reines Schwarz. Beim Siemens-Zeugnis ist das Geburtsdatum tatsächlich
 aus der Textebene entfernt, unter den Balken liegt kein Text und keine Grafik.
+
+Beim CS50x-Zertifikat war der Balken über der Unterschrift zunächst nur
+darübergelegt – das Unterschriftsbild lag unverändert darunter und wäre durch
+Entfernen des Rechtecks wieder sichtbar geworden. In der hier abgelegten Fassung
+ist das Bild aus der Datei entfernt. Name, Zertifikats-ID und Verifizierungslink
+sind bewusst sichtbar, darüber lässt sich das Zertifikat bei Harvard prüfen.
 
 ## Wenn doch mal etwas Ungeschwärztes hochgeht
 
