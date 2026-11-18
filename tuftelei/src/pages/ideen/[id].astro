@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import IdeenLayout from '../../layouts/IdeenLayout.astro';
+
+export async function getStaticPaths() {
+	const ideen = await getCollection('ideen');
+	return ideen.map((idee) => ({ params: { id: idee.id }, props: { idee } }));
+}
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { idee } = Astro.props;
+const { Content } = await render(idee);
+---
+
+<IdeenLayout title={idee.data.title}>
+	<p><a href={`${base}/`}>← Alle Ideen</a></p>
+	<h1>{idee.data.title}</h1>
+	<p class="meta">
+		{idee.data.date.toISOString().slice(0, 10)} · {idee.data.bereich} · <span class="badge">{idee.data.status}</span>
+	</p>
+	<Content />
+</IdeenLayout>

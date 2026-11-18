@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import IdeenLayout from '../layouts/IdeenLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ideen = (await getCollection('ideen')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const stati = [...new Set(ideen.map((i) => i.data.status))];
+---
+
+<IdeenLayout title="Ideen">
+	<h1>Ideen</h1>
+	<label>
+		Status
+		<select id="status">
+			<option value="">alle</option>
+			{stati.map((s) => <option>{s}</option>)}
+		</select>
+	</label>
+	<ul>
+		{ideen.map((i) => (
+			<li data-status={i.data.status}>
+				<a href={`${base}/ideen/${i.id}/`}>{i.data.title}</a>
+				<span class="badge">{i.data.status}</span>
+				<div class="meta">{i.data.date.toISOString().slice(0, 10)} · {i.data.bereich}</div>
+			</li>
+		))}
+	</ul>
+</IdeenLayout>
+
+<style>
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--line);
+	}
+</style>
+
+<script>
+	const select = document.querySelector<HTMLSelectElement>('#status')!;
+	select.addEventListener('change', () => {
+		document.querySelectorAll<HTMLElement>('li[data-status]').forEach((li) => {
+			li.hidden = select.value !== '' && li.dataset.status !== select.value;
+		});
+	});
+</script>

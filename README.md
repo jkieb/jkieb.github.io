@@ -9,6 +9,15 @@
 
 ---
 
+## Tuftelei
+
+Das Astro-Projekt *Tuftelei* (Ideenarchiv) liegt im Ordner [`tuftelei/`](tuftelei/) und ist unter
+<https://jkieb.github.io/tuftelei/> erreichbar. Beide Seiten werden gemeinsam über
+`.github/workflows/deploy.yml` gebaut und deployt (in den Repo-Einstellungen unter
+Pages muss die Quelle auf **GitHub Actions** stehen).
+
+---
+
 ## Redesign
 
 The site has since been rebuilt from scratch. What changed:
