@@ -1,20 +1,43 @@
 # Jakob Iebed Portfolio
 
-### I made a Personal Portfolio usind HTML and CSS.
+### I made a Personal Portfolio using HTML and CSS.
 
 ![alt text](screenshot.png)
 
-### Video Demo:  https://youtu.be/xHIA1kQpNzM
+### Video Demo: https://youtu.be/xHIA1kQpNzM
 ### Link to the website: [Jakob Iebed Portfolio](https://jkieb.github.io/)
+### Link to Tuftelei: [jkieb.github.io/tuftelei](https://jkieb.github.io/tuftelei/)
 
 ---
 
-## Tuftelei
+## Technologies used:
 
-Das Astro-Projekt *Tuftelei* (Ideenarchiv) liegt im Ordner [`tuftelei/`](tuftelei/) und ist unter
-<https://jkieb.github.io/tuftelei/> erreichbar. Beide Seiten werden gemeinsam über
-`.github/workflows/deploy.yml` gebaut und deployt (in den Repo-Einstellungen unter
-Pages muss die Quelle auf **GitHub Actions** stehen).
+- HTML, CSS, JavaScript (portfolio, no framework, no third-party requests)
+- Astro (Tuftelei, in `tuftelei/`)
+- GitHub Pages + GitHub Actions
+
+## Quick Facts:
+
+- One repository, one site: the portfolio lives in the root, **Tuftelei** (idea archive) in `tuftelei/` and is served under `/tuftelei/`.
+- Both are built and deployed together by `.github/workflows/deploy.yml`
+  (Settings → Pages → Source must be **GitHub Actions**).
+- The site follows the system colour scheme and has a dark mode toggle.
+- Currently the website is only in German.
+
+## Files
+
+| File / folder | Purpose |
+| --- | --- |
+| `index.html` | Landing page |
+| `impressum.html` | Legal notice, same design system |
+| `style.css` | Design tokens, layout, components |
+| `main.js` | Certificate list, theme toggle, mobile menu, scroll spy, reveal animation |
+| `img/` | Optimised WebP/JPEG assets used by the site |
+| `zeugnisse/` | Redacted reference letters and certificates, plus the checklist for adding one |
+| `tuftelei/` | Astro project (idea archive), see `tuftelei/README.md` |
+| `.github/workflows/deploy.yml` | Builds Tuftelei and publishes portfolio + Tuftelei to GitHub Pages |
+| `robots.txt` | Excludes `/zeugnisse/` from search engines |
+| `sitemap.xml` | Public pages for search engines |
 
 ---
 
@@ -23,47 +46,23 @@ Pages muss die Quelle auf **GitHub Actions** stehen).
 The site has since been rebuilt from scratch. What changed:
 
 - **No framework anymore.** Bootstrap and Font Awesome (both loaded from a CDN)
-  are gone. The layout is plain CSS Grid and Flexbox, the icons are inline SVG.
-  The whole site now loads without a single third-party request.
+  are gone. Layout is plain CSS Grid and Flexbox, icons are inline SVG.
 - **Design tokens + dark mode.** Colours, spacing, radii and type scale live in
-  CSS custom properties. The site follows the system colour scheme and has a
-  toggle that remembers the choice in `localStorage`.
-- **Fluid typography.** Font sizes scale with the viewport via `clamp()` instead
-  of fixed pixel values.
-- **Real mobile navigation** with a burger menu, `Esc` to close and proper
-  ARIA state.
-- **Images optimised.** WebP with JPEG fallback, `loading="lazy"`, explicit
-  `width`/`height` so nothing jumps while loading — roughly 9.7 MB down to
-  0.75 MB of image payload. The optimised files live in `img/`.
-- **Accessibility.** Semantic landmarks, skip link, visible focus rings,
-  descriptive `alt` texts, `lang="de"` on the page and `lang="ar" dir="rtl"` on
-  the Arabic quote, `prefers-reduced-motion` support.
-- **Certificates section.** Reference letters and certificates are listed from a
-  single array at the top of `main.js`; the PDFs live in `zeugnisse/`. If the
-  array is empty, the section and its nav entry disappear, so there are never
-  any dead links. See `zeugnisse/README.md` for the redaction checklist — a
-  black rectangle drawn on top of a PDF is not a redaction, the content
-  underneath survives it.
-- **SEO/social.** Meta description, canonical URL, Open Graph and Twitter card
-  tags, an inline SVG favicon and a dedicated 1200×630 preview image so nothing
-  gets cropped when the page is shared. `robots.txt` keeps `/zeugnisse/` out of
-  search engines while the rest of the site stays indexable; `sitemap.xml`
-  lists the public pages.
+  CSS custom properties; the toggle remembers the choice in `localStorage`.
+- **Fluid typography** via `clamp()`.
+- **Real mobile navigation** with a burger menu, `Esc` to close and ARIA state.
+- **Images optimised.** WebP with JPEG fallback, lazy loading, explicit
+  `width`/`height` – roughly 9.7 MB down to 0.75 MB.
+- **Accessibility.** Landmarks, skip link, focus rings, descriptive `alt` texts,
+  `lang` attributes, `prefers-reduced-motion` support.
+- **Certificates section.** Listed from one array at the top of `main.js`; PDFs
+  live in `zeugnisse/` (see `zeugnisse/README.md` for the redaction checklist –
+  a black rectangle on top of a PDF is not a redaction). Empty array = section
+  and nav entry disappear.
+- **SEO/social.** Meta description, canonical URL, Open Graph/Twitter tags,
+  inline SVG favicon, 1200×630 preview image.
 
-### Files
-
-| File | Purpose |
-| --- | --- |
-| `index.html` | Landing page |
-| `impressum.html` | Legal notice, same design system |
-| `style.css` | Design tokens, layout, components |
-| `main.js` | Certificate list, theme toggle, mobile menu, scroll spy, reveal animation |
-| `img/` | Optimised WebP/JPEG assets used by the site |
-| `zeugnisse/` | Redacted reference letters and certificates, plus the checklist for adding one |
-| `robots.txt` | Excludes `/zeugnisse/` from search engines |
-| `sitemap.xml` | Public pages for search engines |
-
-The screenshots and images in the CS50 write-up below are kept on purpose — they
+The screenshots and images in the CS50 write-up below are kept on purpose – they
 are what that section illustrates.
 
 ---
