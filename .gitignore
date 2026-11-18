@@ -11,3 +11,11 @@ venv/
 # Betriebssystem
 .DS_Store
 Thumbs.db
+
+# Tuftelei (Astro)
+node_modules/
+dist/
+.astro/
+_site/
+.env
+.env.production

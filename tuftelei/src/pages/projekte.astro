@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import image3dPrint from '../assets/3d-print-project.jpg';
+import imageEsk8 from '../assets/esk8-project.jpeg';
+import imageCs50 from '../assets/cs50-project.jpg';
+---
+
+<Layout title="Projekte - Jakob Iebed" description="Tauchen Sie ein in meine Welt der Projekte! Hier zeige ich mit Stolz meine Arbeiten im 3D-Druck, faszinierende Elektronik-Projekte wie mein selbstgebautes E-Board und meine Fortschritte in der Programmierung mit Python, C, SQL und Webtechnologien. Jedes Projekt ist eine persönliche Reise, die meine Neugier und mein Engagement widerspiegelt.">
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Projekte</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <Image src={image3dPrint} class="card-img-top" alt="3D-Druck Projekt" width={600} height={400} quality={80} format="webp" />
+            <div class="card-body">
+              <h3 class="card-title text-center h4">3D-Druck</h3>
+              <div class="card-text">
+                3D-Druck, auch bekannt als additive Fertigung, ist eine revolutionäre Technologie, die es ermöglicht, Objekte in Echtzeit herzustellen.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <Image src={imageEsk8} class="card-img-top" alt="Elektrisches Skateboard Projekt" width={600} height={400} quality={80} format="webp" style="object-fit: cover;" />
+            <div class="card-body">
+              <h3 class="card-title text-center h4">E-Board</h3>
+              <p class="card-text">
+                Ich habe ein elektrisches Skateboard gebaut, komplett mit Batterie, Motor, ESC und selbstgemachten Zahnrädern.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <Image src={imageCs50} class="card-img-top" alt="CS50 Harvard Kurs Projekt" width={600} height={400} quality={80} format="webp" />
+            <div class="card-body">
+              <h3 class="card-title text-center h4">CS50</h3>
+              <p class="card-text">
+                Ich habe den Kurs CS50 von Harvard absolviert und habe Programmierkenntnisse in Python, C, SQL, HTML, CSS und JavaScript erworben.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout> 
